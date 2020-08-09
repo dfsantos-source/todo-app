@@ -19,9 +19,12 @@ from .views import *
 
 # each path is assigned with a view
 urlpatterns = [
-    path('', mainView),
+    path('', mainView, name="home"),
     path('add_Todo/', addTodo, name="add_Todo"),
     path('update_Todo/<int:pk>/', updateTodo, name="update_Todo"),
-    path('delete_Todo/<str:pk>/', deleteTodo, name="delete_Todo")
+    path('delete_Todo/<int:pk>/', deleteTodo, name="delete_Todo"),
+    path('login/', loginView, name="login"),
+    path('logout/', logoutView, name="logout"),
+    path('register/', registerView, name="register"),
     # we use a parameter by using '< >'
 ]

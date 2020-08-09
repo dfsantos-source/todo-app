@@ -1,0 +1,41 @@
+{% extends 'todo/default.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .content {
+          width:600px;
+          padding:30px;
+    margin: 20px auto;
+          background-color: #fff;
+          border-radius: 5px;
+          box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+    }
+</style>
+
+<div class="content">
+    <h2>Are you sure you want to delete? </h2>
+    <hr>
+    <h4>{{item.name}}</h4>
+    {% if item.content != null %}
+    <h6>Notes: {{item.content}}</h6>
+    {% endif %}
+    {% if item.date != null %}
+    <h6>Date: {{item.date}}</h6>
+    {% endif %}
+    {% if item.time != null %}
+    <h6>Time: {{item.time}}</h6>
+    {% endif %}
+    <form action="{% url 'delete_Todo' item.id %}"method="POST">
+        {% csrf_token %}
+        <input class="btn btn-dark btn-sm"type="submit" value="Confirm">
+        <a class="btn btn-dark btn-sm" href="{% url 'home' %}">Cancel</a>
+
+    </form>
+    
+</div>
+
+
+
+
+{% endblock %}

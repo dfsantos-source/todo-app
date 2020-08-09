@@ -2,42 +2,9 @@
 {% load static %}
 {% block content %}
 <style>
-
-  body {
-    background-color: #8EC5FC;
-    background-image: linear-gradient(180deg, #8EC5FC 0%, #E0C3FC 100%);
-
-
-  }
-
   .content{
 		width:700px;
-		margin: 40px 90px;
-		padding:20px;
-		background-color: #fff;
-		border-radius: 5px;
-		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
-	}
-
-  .profile{
-    position: absolute;
-    top: 55px;
-    right: 50px;
-		width:800px;
-    height: 500px;
-		margin: 40px;
-		padding:20px;
-		background-color: #fff;
-		border-radius: 5px;
-		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
-	}
-
-  .friends{
-    position: absolute;
-    top: 600px;
-    right: 50px;
-		width:800px;
-		margin: 40px;
+		margin: 40px auto;
 		padding:20px;
 		background-color: #fff;
 		border-radius: 5px;
@@ -50,7 +17,7 @@
 		padding: 20px;
 		border-radius: 3px;
 		color: black;
-		font-size: 16px;
+		font-size: 18px;
 		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
   }
 
@@ -58,41 +25,60 @@
     padding-top: 20px;
   }
 
+  h1 {
+    text-align:center;
+    position: relative;
+    left: -20px;
+    margin-bottom: -10px;
+  }
+
+  .create {
+    border-radius: 50%;
+    position: relative;
+    left: 600px;
+    top: -12px;
+  }
+
+  .desc {
+    margin-bottom: -3px;
+  }
+
+  .edit {
+    margin-top: 10px;
+  }
+
+  .title {
+    margin-top: -9px;
+  }
+  
+  .header {
+    margin-bottom: -30px;
+  }
 
 
 </style>
 <div class="content">
-      <div class="">
-        <h1>Todo List</h1>
+      <div class="header">
+        <h1>Your To-Do List</h1>
       </div>
-        <a class="btn btn-info" href="{% url 'add_Todo' %}">Create Todo</a>
+        <a class="create btn btn-dark btn-large" href="{% url 'add_Todo' %}">+</a>
         {% for todoItem in todo_items %}
         <div id="item" class="">
-          <p class="h3">{{todoItem.name}}</p>
+          <p class="h3 title">{{todoItem.name}}</p>
           {% if todoItem.content != null %}
-            <p>Notes: {{todoItem.content}}</p>
+            <p class="desc">Notes: {{todoItem.content}}</p>
           {% endif %}
           {% if todoItem.date != null %}
-            <p>Date: {{todoItem.date}}</p>
+            <p class="desc">Date: {{todoItem.date}}</p>
           {% endif %}
           {% if todoItem.time != null %}
-            <p>Time: {{todoItem.time}}</p>
+            <p class="desc">Time: {{todoItem.time}}</p>
           {% endif %}
-          <a class="btn btn-info" href="{% url 'update_Todo' todoItem.id %}">Update</a>
-          <a class="btn btn-info" href="#">Delete</a>
+          <div class="edit">
+            <a class="btn btn-dark btn-sm" href="{% url 'update_Todo' todoItem.id %}">Update</a>
+            <a class="btn btn-dark btn-sm" href="{% url 'delete_Todo' todoItem.id %}">Delete</a>
+          </div>
         </div>
         {% endfor %}
-</div>
-<div class="profile">
-  <h1>Profile</h1>
-</div>
-<div class="friends">
-  <h1>Friends</h1>
-  <h4>Bob Dylan</h4>
-  <a href="#">See Profile</a>
-  <h4>Sydney Loo</h4>
-  <a href="#">See Profile</a>
-  <h4>John Richard</h4>
-  <a href="#">See Profile</a>
 </div>
 {% endblock %}

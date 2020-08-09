@@ -1,0 +1,46 @@
+{% extends 'todo/default.html' %}
+{% load static %}
+{% block content %}
+<style>
+  .content {
+		width:600px;
+		padding:30px;
+    margin: 20px auto;
+		background-color: #fff;
+		border-radius: 5px;
+		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+  }
+
+  h5 {
+    margin-top: -30px;
+  }
+  
+  h2 {
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+  .element {
+    margin-top: -35px;
+  }
+
+  .titleUl {
+    border-top: 2px solid black;
+  }
+</style>
+<form class="content"action="" method="POST">
+  <h1>Create A New Task</h1>
+  <hr class="titleUl">
+  {% csrf_token %}
+  {% for field in form %}
+  <h4>{{field.label_tag}}</h4>
+  <br>
+  <div class="element">
+    {{field}}
+  </div>
+  <hr>
+  {% endfor %}
+  <input class="create btn btn-dark" type="submit" value="Create">
+  <a class="btn btn-dark" href="{% url 'home' %}">Cancel</a>
+</form>
+
+{% endblock %}
