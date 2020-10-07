@@ -7,7 +7,7 @@ views, inheritance of templates, and user-based permissions.
 
 
 
-## Setting Up Virtual Environment (virtualenv)
+## Setting Up Virtual Environment 
 We can setup the virtual environment using venv, and the requirements.txt file.
 ```sh
 $ python3 -m venv task-manager
