@@ -6,3 +6,4 @@ Developed a task manager web application built using Django Framework that keeps
 views, inheritance of templates, and user-based permissions.
 * Learned about web development with a focus on front-end user interfaces and design, styling, and formatting.
 
+<img src="todo_project/todo/static/">
