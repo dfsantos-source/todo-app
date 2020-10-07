@@ -8,6 +8,7 @@ views, inheritance of templates, and user-based permissions.
 
 
 ## Setting Up Virtual Environment (virtualenv)
+We can setup the virtual environment using venv, and the requirements.txt file.
 ```sh
 $ python3 -m venv task-manager
 $ source task-manager/bin/activate
@@ -18,6 +19,7 @@ $ python manage.py runserver
 
 
 ## Showcase/Demo
+Below is the showcase of what the application looks like. 
 <img width="1792" alt="pic1" src="https://user-images.githubusercontent.com/64881219/95285647-4b047300-082f-11eb-8d63-e0d17b9818df.png">
 <img width="1792" alt="pic2" src="https://user-images.githubusercontent.com/64881219/95285651-4d66cd00-082f-11eb-88e7-4e2ab8b421fd.png">
 <img width="1792" alt="pic3" src="https://user-images.githubusercontent.com/64881219/95285658-4fc92700-082f-11eb-8722-3588a138f091.png">
